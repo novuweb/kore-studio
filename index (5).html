@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kóre Studio | Pilates Reformer en Oviedo con Cristina</title>
+  <meta name="description" content="Kóre Studio, estudio boutique de Pilates Reformer en Oviedo dirigido por Cristina. Grupos reducidos, atención personalizada y plazas limitadas. ¡Reserva tu plaza!" />
+  <meta property="og:title" content="Kóre Studio | Pilates Reformer en Oviedo con Cristina" />
+  <meta property="og:description" content="Relájate, respira y conecta con tu cuerpo. Pilates Reformer en Oviedo con Cristina. Plazas limitadas." />
+  <meta property="og:image" content="hero.png" />
+  <meta property="og:type" content="website" />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/png" href="logo%20(4).png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ══════════════════════════════════════
+       RESET & VARIABLES
+    ══════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --tierra:    #A0785A;
+      --tierra-lt: #B8937A;
+      --tierra-dk: #7A5840;
+      --crema:     #F5EFE6;
+      --beige:     #E8D5C0;
+      --white:     #FFFFFF;
+      --dark:      #3D2B1F;
+      --grey:      #8A7A72;
+      --light-grey:#D4C4B8;
+      --radius:    14px;
+      --font-title: 'Cormorant Garamond', Georgia, serif;
+      --font-body:  'Inter', sans-serif;
+      --tr: .35s cubic-bezier(.4,0,.2,1);
+      --shadow: 0 4px 32px rgba(61,43,31,.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--white);
+      color: var(--dark);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a   { text-decoration: none; color: inherit; }
+
+    /* ══════════════════════════════════════
+       SCROLL REVEAL
+    ══════════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .75s ease, transform .75s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-left  { opacity: 0; transform: translateX(-44px); transition: opacity .75s ease, transform .75s ease; }
+    .reveal-right { opacity: 0; transform: translateX( 44px); transition: opacity .75s ease, transform .75s ease; }
+    .reveal-left.visible, .reveal-right.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .22s; }
+    .reveal-delay-3 { transition-delay: .34s; }
+
+    /* ══════════════════════════════════════
+       SECTION COMMONS
+    ══════════════════════════════════════ */
+    section { padding: 100px 6%; }
+
+    .s-label {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: .63rem;
+      font-weight: 600;
+      letter-spacing: .26em;
+      text-transform: uppercase;
+      color: var(--tierra);
+      margin-bottom: .75rem;
+    }
+    .s-title {
+      font-family: var(--font-title);
+      font-size: clamp(2rem, 4.5vw, 3.4rem);
+      font-weight: 400;
+      line-height: 1.12;
+      color: var(--dark);
+      letter-spacing: .04em;
+      margin-bottom: .9rem;
+    }
+    .s-title-light { color: var(--white); }
+    .s-subtitle {
+      font-size: .94rem;
+      font-weight: 300;
+      color: var(--grey);
+      line-height: 1.75;
+      max-width: 520px;
+    }
+    .text-center { text-align: center; }
+    .text-center .s-subtitle { margin: 0 auto; }
+
+    /* Separador sutil entre secciones */
+    .sep {
+      display: flex;
+      justify-content: center;
+      padding: 4px 0;
+    }
+    .sep-line {
+      width: 60px; height: 1px;
+      background: var(--tierra);
+      opacity: .35;
+    }
+
+    /* Divisor interno sección */
+    .s-rule {
+      width: 50px; height: 1px;
+      background: var(--tierra);
+      margin: 1rem 0 1.8rem;
+    }
+    .s-rule.center { margin: 1rem auto 1.8rem; }
+
+    /* Botones */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      font-family: var(--font-body);
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      padding: .9rem 2rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background var(--tr), color var(--tr), transform var(--tr), border-color var(--tr), box-shadow var(--tr);
+      text-decoration: none;
+    }
+    .btn-tierra {
+      background: var(--tierra);
+      color: var(--white);
+      border: 1px solid var(--tierra);
+    }
+    .btn-tierra:hover {
+      background: var(--tierra-dk);
+      border-color: var(--tierra-dk);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(160,120,90,.3);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--tierra);
+      border: 1px solid var(--tierra);
+    }
+    .btn-outline:hover {
+      background: var(--tierra);
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(160,120,90,.3);
+    }
+    .btn-lg { font-size: .84rem; padding: 1.05rem 2.4rem; }
+
+    /* ══════════════════════════════════════
+       1. BANNER SUPERIOR
+    ══════════════════════════════════════ */
+    .top-banner {
+      background: var(--tierra);
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 10px 0;
+      position: relative;
+      z-index: 200;
+    }
+    .top-banner-track {
+      display: inline-flex;
+      animation: marquee 32s linear infinite;
+    }
+    .top-banner-track span {
+      font-family: var(--font-body);
+      font-size: .68rem;
+      font-weight: 400;
+      letter-spacing: .16em;
+      color: var(--white);
+      padding: 0 3.5rem;
+      text-transform: uppercase;
+    }
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ══════════════════════════════════════
+       2. NAVBAR
+    ══════════════════════════════════════ */
+    .navbar {
+      position: fixed;
+      top: 40px; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 6%;
+      height: 70px;
+      transition: background var(--tr), backdrop-filter var(--tr), top var(--tr), box-shadow var(--tr), border-color var(--tr);
+      border-bottom: 1px solid transparent;
+    }
+    .navbar.scrolled {
+      background: rgba(245,239,230,.93);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom-color: rgba(160,120,90,.18);
+      box-shadow: 0 2px 32px rgba(61,43,31,.08);
+      top: 0;
+    }
+    .navbar-logo img {
+      height: 46px;
+      width: auto;
+      transition: transform var(--tr);
+    }
+    .navbar-logo img:hover { transform: scale(1.04); }
+
+    .navbar-links {
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
+      list-style: none;
+    }
+    .navbar-links a {
+      font-size: .74rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--dark);
+      transition: color var(--tr);
+      position: relative;
+    }
+    .navbar-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0; right: 0;
+      height: 1px;
+      background: var(--tierra);
+      transform: scaleX(0);
+      transition: transform var(--tr);
+      transform-origin: left;
+    }
+    .navbar-links a:hover { color: var(--tierra); }
+    .navbar-links a:hover::after { transform: scaleX(1); }
+
+    .navbar-cta {
+      background: var(--tierra) !important;
+      color: var(--white) !important;
+      padding: .48rem 1.3rem !important;
+      border-radius: 50px;
+      font-weight: 600 !important;
+      letter-spacing: .09em;
+      transition: background var(--tr) !important;
+    }
+    .navbar-cta::after { display: none !important; }
+    .navbar-cta:hover { background: var(--tierra-dk) !important; color: var(--white) !important; }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 6px;
+      z-index: 102;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px; height: 1.5px;
+      background: var(--dark);
+      transition: transform .3s, opacity .3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(245,239,230,.98);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.2rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s;
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a {
+      font-family: var(--font-title);
+      font-size: 2.1rem;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--dark);
+      letter-spacing: .04em;
+      transition: color var(--tr);
+    }
+    .mobile-menu a:hover { color: var(--tierra); }
+
+    @media (max-width: 900px) {
+      .navbar-links { display: none; }
+      .hamburger    { display: flex; }
+      .mobile-menu  { display: flex; }
+    }
+
+    /* ══════════════════════════════════════
+       3. HERO
+    ══════════════════════════════════════ */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      top: -15%; left: 0; right: 0;
+      height: 130%;
+      background: url('hero.png') center/cover no-repeat;
+      will-change: transform;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(245,239,230,.3) 0%,
+        rgba(245,239,230,.15) 40%,
+        rgba(61,43,31,.55) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 2rem;
+      max-width: 820px;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: .66rem;
+      font-weight: 500;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.85);
+      margin-bottom: 1.3rem;
+      opacity: 0;
+      animation: heroFade .8s .35s forwards;
+    }
+    .hero-title {
+      font-family: var(--font-title);
+      font-size: clamp(2.4rem, 6.5vw, 5.2rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--white);
+      letter-spacing: .05em;
+      text-shadow: 0 2px 40px rgba(61,43,31,.35);
+      opacity: 0;
+      animation: heroFade .9s .6s forwards;
+    }
+    .hero-line {
+      width: 44px; height: 1px;
+      background: rgba(245,239,230,.7);
+      margin: 1.6rem auto;
+      opacity: 0;
+      animation: heroFade .6s .9s forwards;
+    }
+    .hero-subtitle {
+      font-size: clamp(.78rem, 1.8vw, .92rem);
+      font-weight: 300;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.78);
+      opacity: 0;
+      animation: heroFade .8s 1.05s forwards;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 2.4rem;
+      background: var(--tierra);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      padding: 1rem 2.8rem;
+      border-radius: 50px;
+      border: 1px solid var(--tierra);
+      opacity: 0;
+      animation: heroFade .8s 1.25s forwards;
+      transition: background var(--tr), color var(--tr), border-color var(--tr), transform var(--tr);
+    }
+    .hero-cta:hover {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255,255,255,.7);
+      transform: translateY(-2px);
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.2rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: .45rem;
+      z-index: 2;
+      opacity: 0;
+      animation: heroFade .7s 1.6s forwards;
+    }
+    .hero-scroll span {
+      font-size: .58rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+    }
+    .scroll-line {
+      width: 1px; height: 38px;
+      background: linear-gradient(to bottom, rgba(160,120,90,.8), transparent);
+      animation: scrollPulse 2.2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse { 0%,100%{opacity:.5;transform:scaleY(1)} 50%{opacity:1;transform:scaleY(1.08)} }
+    @keyframes heroFade { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:none} }
+
+    /* ══════════════════════════════════════
+       DOS COLUMNAS (reformer, clases, cristina)
+    ══════════════════════════════════════ */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    @media (max-width: 820px) {
+      .two-col { grid-template-columns: 1fr; gap: 2.5rem; }
+      .two-col .col-img { order: -1; }
+    }
+    .col-img img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: 0 16px 60px rgba(61,43,31,.12);
+    }
+    @media (max-width: 540px) { .col-img img { height: 300px; } }
+    .col-text p {
+      font-size: .94rem;
+      font-weight: 300;
+      color: var(--grey);
+      line-height: 1.9;
+      margin-bottom: 1.1rem;
+    }
+
+    /* ══════════════════════════════════════
+       4. PILATES REFORMER
+    ══════════════════════════════════════ */
+    #reformer { background: var(--crema); }
+
+    /* ══════════════════════════════════════
+       5. CLASES
+    ══════════════════════════════════════ */
+    #clases { background: var(--white); }
+    .clases-points {
+      list-style: none;
+      margin: 1.6rem 0 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: .85rem;
+    }
+    .clases-points li {
+      display: flex;
+      align-items: center;
+      gap: .85rem;
+      font-size: .9rem;
+      font-weight: 400;
+      color: var(--dark);
+    }
+    .clases-points li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 20px; height: 1px;
+      background: var(--tierra);
+    }
+
+    /* ══════════════════════════════════════
+       6. RESEÑAS
+    ══════════════════════════════════════ */
+    #resenas {
+      position: relative;
+      overflow: hidden;
+      padding: 96px 0;
+    }
+    .resenas-bg {
+      position: absolute; inset: 0;
+      background: url('fondo-resenas.png') center/cover no-repeat;
+    }
+    .resenas-overlay {
+      position: absolute; inset: 0;
+      background: rgba(122,88,64,.84);
+    }
+    .resenas-content { position: relative; z-index: 2; }
+    .resenas-header {
+      text-align: center;
+      padding: 0 6%;
+      margin-bottom: 3.2rem;
+    }
+    .resenas-header .s-rule {
+      background: rgba(245,239,230,.4);
+      margin: 1rem auto 0;
+    }
+
+    .reviews-marquee { overflow: hidden; width: 100%; }
+    .reviews-track {
+      display: flex;
+      gap: 1.4rem;
+      width: max-content;
+      will-change: transform;
+      padding: .4rem 0;
+    }
+    .rcard {
+      flex: 0 0 320px;
+      background: var(--crema);
+      border-radius: var(--radius);
+      padding: 1.8rem 1.6rem;
+      box-shadow: 0 4px 20px rgba(61,43,31,.14);
+    }
+    @media (max-width: 540px) { .rcard { flex: 0 0 270px; padding: 1.4rem 1.3rem; } }
+    .rcard-stars {
+      color: var(--tierra);
+      font-size: .85rem;
+      letter-spacing: .05em;
+      margin-bottom: .7rem;
+    }
+    .rcard-stars .empty { opacity: .22; }
+    .rcard-text {
+      font-family: var(--font-title);
+      font-size: .96rem;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .rcard-author {
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--tierra-dk);
+    }
+
+    /* ══════════════════════════════════════
+       7. SOBRE CRISTINA
+    ══════════════════════════════════════ */
+    #cristina { background: var(--crema); }
+
+    /* ══════════════════════════════════════
+       8. HORARIOS
+    ══════════════════════════════════════ */
+    #horarios { background: var(--white); }
+    .horarios-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+      max-width: 720px;
+      margin: 2.5rem auto 0;
+    }
+    @media (max-width: 600px) { .horarios-grid { grid-template-columns: 1fr; max-width: 320px; } }
+    .horario-card {
+      background: var(--crema);
+      border: 1px solid var(--beige);
+      border-radius: var(--radius);
+      padding: 2.2rem 1.5rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: border-color var(--tr), box-shadow var(--tr), transform var(--tr);
+    }
+    .horario-card:hover {
+      border-color: var(--tierra);
+      box-shadow: 0 8px 30px rgba(160,120,90,.18);
+      transform: translateY(-3px);
+    }
+    .horario-card.closed { opacity: .5; }
+    .horario-day {
+      font-family: var(--font-title);
+      font-size: 1.12rem;
+      font-weight: 500;
+      color: var(--dark);
+      letter-spacing: .04em;
+      margin-bottom: .6rem;
+    }
+    .horario-time {
+      font-size: .8rem;
+      font-weight: 400;
+      color: var(--tierra);
+      letter-spacing: .07em;
+      line-height: 1.7;
+    }
+    .horario-note {
+      text-align: center;
+      margin-top: 1.8rem;
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--grey);
+    }
+
+    /* ══════════════════════════════════════
+       9. CONTACTO
+    ══════════════════════════════════════ */
+    #contacto { background: var(--crema); }
+    .contact-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 2.6rem 0 1.4rem;
+    }
+    .contact-instagram {
+      display: inline-block;
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      color: var(--tierra);
+      transition: color var(--tr);
+    }
+    .contact-instagram:hover { color: var(--tierra-dk); }
+
+    /* ══════════════════════════════════════
+       10. FOOTER
+    ══════════════════════════════════════ */
+    footer {
+      background: var(--dark);
+      border-top: 2px solid var(--tierra);
+      padding: 4rem 6% 2rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 2.8rem;
+    }
+    @media (max-width: 700px) { .footer-grid { grid-template-columns: 1fr; gap: 2rem; } }
+    .footer-brand img {
+      height: 48px;
+      margin-bottom: 1.1rem;
+      filter: brightness(0) invert(1);
+    }
+    .footer-brand p {
+      font-size: .8rem;
+      font-weight: 300;
+      color: rgba(255,255,255,.38);
+      line-height: 1.75;
+    }
+    .footer-col h4 {
+      font-family: var(--font-title);
+      font-size: .92rem;
+      font-style: italic;
+      font-weight: 500;
+      color: var(--tierra-lt);
+      letter-spacing: .06em;
+      margin-bottom: 1.1rem;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li {
+      font-size: .79rem;
+      font-weight: 300;
+      color: rgba(255,255,255,.42);
+      margin-bottom: .5rem;
+      line-height: 1.6;
+    }
+    .footer-col a { color: inherit; transition: color var(--tr); }
+    .footer-col a:hover { color: var(--tierra-lt); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.07);
+      padding-top: 1.5rem;
+      text-align: center;
+    }
+    .footer-bottom p {
+      font-size: .7rem;
+      color: rgba(255,255,255,.2);
+      letter-spacing: .07em;
+    }
+
+    /* ══════════════════════════════════════
+       11. BOTÓN FLOTANTE
+    ══════════════════════════════════════ */
+    .float-cta {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      background: var(--tierra);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .9rem 1.8rem;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      z-index: 98;
+      box-shadow: 0 6px 28px rgba(160,120,90,.45);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      transition: transform var(--tr), box-shadow var(--tr), background var(--tr);
+      animation: floatPulse 3s ease-in-out infinite;
+    }
+    .float-cta:hover {
+      background: var(--tierra-dk);
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 12px 36px rgba(160,120,90,.55);
+    }
+    @keyframes floatPulse {
+      0%,100% { box-shadow: 0 6px 28px rgba(160,120,90,.45); }
+      50%      { box-shadow: 0 6px 38px rgba(160,120,90,.68); }
+    }
+    @media (max-width: 540px) {
+      .float-cta { bottom: 1.2rem; right: 1.2rem; padding: 1rem 1.7rem; font-size: .8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ 1. BANNER SUPERIOR ══ -->
+<div class="top-banner" aria-label="Promoción de apertura">
+  <div class="top-banner-track" aria-hidden="true">
+    <span>✨ Matrícula especial solo para los 10 primeros · Plazas limitadas · Llámanos al 612 256 455 ✨</span>
+    <span>✨ Matrícula especial solo para los 10 primeros · Plazas limitadas · Llámanos al 612 256 455 ✨</span>
+    <span>✨ Matrícula especial solo para los 10 primeros · Plazas limitadas · Llámanos al 612 256 455 ✨</span>
+  </div>
+</div>
+
+<!-- ══ 2. NAVBAR ══ -->
+<nav class="navbar" id="navbar" aria-label="Navegación principal">
+  <a href="#inicio" class="navbar-logo" aria-label="Kóre Studio – Inicio">
+    <img src="logo (4).png" alt="Logo Kóre Studio" />
+  </a>
+  <ul class="navbar-links" role="list">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#reformer">Pilates</a></li>
+    <li><a href="#clases">Clases</a></li>
+    <li><a href="#resenas">Reseñas</a></li>
+    <li><a href="#cristina">Sobre mí</a></li>
+    <li><a href="#horarios">Horarios</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="https://wa.me/34612256455?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20mi%20plaza%20en%20K%C3%B3re%20Studio" target="_blank" rel="noopener" class="navbar-cta">Reserva tu plaza</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menú móvil">
+  <a href="#inicio"   class="nav-close">Inicio</a>
+  <a href="#reformer" class="nav-close">Pilates</a>
+  <a href="#clases"   class="nav-close">Clases</a>
+  <a href="#resenas"  class="nav-close">Reseñas</a>
+  <a href="#cristina" class="nav-close">Sobre mí</a>
+  <a href="#horarios" class="nav-close">Horarios</a>
+  <a href="#contacto" class="nav-close">Contacto</a>
+  <a href="https://wa.me/34612256455?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20mi%20plaza%20en%20K%C3%B3re%20Studio" target="_blank" rel="noopener" class="nav-close" style="color:var(--tierra)">✨ Reserva tu plaza</a>
+</div>
+
+<!-- ══ 3. HERO ══ -->
+<section class="hero" id="inicio" aria-label="Kóre Studio – Pilates Reformer en Oviedo">
+  <div class="hero-bg" role="img" aria-label="Interior de Kóre Studio"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Kóre Studio · Oviedo, Asturias</div>
+    <h1 class="hero-title">Relájate, respira y<br>conecta con tu cuerpo</h1>
+    <div class="hero-line"></div>
+    <p class="hero-subtitle">Pilates Reformer con Cristina · Oviedo</p>
+    <a href="https://wa.me/34612256455?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20mi%20plaza%20en%20K%C3%B3re%20Studio" target="_blank" rel="noopener noreferrer" class="hero-cta">
+      Reserva tu plaza
+    </a>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <div class="scroll-line"></div>
+    <span>Descubre</span>
+  </div>
+</section>
+
+<div class="sep"><div class="sep-line"></div></div>
+
+<!-- ══ 4. QUÉ ES EL PILATES REFORMER ══ -->
+<section id="reformer" aria-label="Qué es el Pilates Reformer">
+  <div class="two-col">
+    <div class="col-img reveal-left">
+      <img src="reformer.png" alt="Máquina Pilates Reformer en Kóre Studio" loading="lazy" />
+    </div>
+    <div class="col-text reveal-right">
+      <span class="s-label">El método</span>
+      <h2 class="s-title">¿Qué es el<br>Pilates Reformer?</h2>
+      <div class="s-rule"></div>
+      <p>El Pilates Reformer es un método de entrenamiento que combina fuerza, flexibilidad y control corporal a través de una máquina de resistencia. Es apto para todos los niveles y edades, y sus beneficios van desde la mejora postural hasta la reducción del estrés.</p>
+      <p>En Kóre Studio trabajamos contigo de forma personalizada para que cada sesión sea única y adaptada a tus necesidades.</p>
+    </div>
+  </div>
+</section>
+
+<div class="sep"><div class="sep-line"></div></div>
+
+<!-- ══ 5. CLASES ══ -->
+<section id="clases" aria-label="Clases de Pilates Reformer en Kóre Studio">
+  <div class="two-col">
+    <div class="col-text reveal-left">
+      <span class="s-label">Nuestras clases</span>
+      <h2 class="s-title">Pilates Reformer<br>para todos</h2>
+      <div class="s-rule"></div>
+      <p>En Kóre Studio ofrecemos clases de Pilates Reformer en grupos reducidos para garantizar la atención que mereces. Cada sesión está diseñada para trabajar tu cuerpo de forma consciente, mejorando tu postura, tu fuerza y tu bienestar general.</p>
+      <ul class="clases-points">
+        <li>Grupos reducidos</li>
+        <li>Atención personalizada</li>
+        <li>Todos los niveles</li>
+      </ul>
+      <a href="https://wa.me/34612256455?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20horarios%20y%20precios%20de%20K%C3%B3re%20Studio" target="_blank" rel="noopener" class="btn btn-tierra">Consulta horarios y precios</a>
+    </div>
+    <div class="col-img reveal-right">
+      <img src="clases.png" alt="Clase de Pilates Reformer en Kóre Studio" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<div class="sep"><div class="sep-line"></div></div>
+
+<!-- ══ 6. RESEÑAS ══ -->
+<section id="resenas" aria-label="Reseñas de alumnas de Kóre Studio">
+  <div class="resenas-bg" role="img" aria-label="Interior de Kóre Studio con reformers"></div>
+  <div class="resenas-overlay"></div>
+  <div class="resenas-content">
+    <div class="resenas-header reveal">
+      <span class="s-label" style="color:rgba(245,239,230,.65)">Opiniones reales</span>
+      <h2 class="s-title s-title-light">Lo que dicen<br>nuestras alumnas</h2>
+      <div class="s-rule center" style="background:rgba(245,239,230,.35);margin-top:1rem"></div>
+    </div>
+    <div class="reviews-marquee" id="reviewsMarquee">
+      <div class="reviews-track" id="reviewsTrack">
+
+        <article class="rcard">
+          <div class="rcard-stars">★★★★★</div>
+          <p class="rcard-text">"Llevo tres meses y mi espalda ha mejorado muchísimo. Cristina explica todo con mucha paciencia."</p>
+          <div class="rcard-author">Laura M.</div>
+        </article>
+        <article class="rcard">
+          <div class="rcard-stars">★★★★★</div>
+          <p class="rcard-text">"El ambiente del estudio es precioso y muy tranquilo. Me encanta venir cada semana."</p>
+          <div class="rcard-author">Marta G.</div>
+        </article>
+        <article class="rcard">
+          <div class="rcard-stars">★★★★★</div>
+          <p class="rcard-text">"Nunca había hecho pilates y Cristina me hizo sentir muy cómoda desde el primer día."</p>
+          <div class="rcard-author">Ana P.</div>
+        </article>
+        <article class="rcard">
+          <div class="rcard-stars">★★★★<span class="empty">★</span></div>
+          <p class="rcard-text">"Muy buenas clases, se nota que Cristina sabe mucho. A veces cuesta conseguir plaza pero merece la pena."</p>
+          <div class="rcard-author">Sofía R.</div>
+        </article>
+        <article class="rcard">
+          <div class="rcard-stars">★★★★★</div>
+          <p class="rcard-text">"Lo mejor que he hecho por mi cuerpo en años. Salgo de cada clase renovada."</p>
+          <div class="rcard-author">Carmen L.</div>
+        </article>
+        <article class="rcard">
+          <div class="rcard-stars">★★★★★</div>
+          <p class="rcard-text">"El reformer es increíble. Al principio me daba respeto pero Cristina lo hace muy fácil."</p>
+          <div class="rcard-author">Isabel T.</div>
+        </article>
+        <article class="rcard">
+          <div class="rcard-stars">★★★★★</div>
+          <p class="rcard-text">"Grupos pequeños, atención personalizada y un estudio muy cuidado. Todo perfecto."</p>
+          <div class="rcard-author">Lucía F.</div>
+        </article>
+        <article class="rcard">
+          <div class="rcard-stars">★★★★<span class="empty">★</span></div>
+          <p class="rcard-text">"Muy contenta con las clases. Me gustaría que hubiera más horarios por la tarde."</p>
+          <div class="rcard-author">Patricia V.</div>
+        </article>
+        <article class="rcard">
+          <div class="rcard-stars">★★★★★</div>
+          <p class="rcard-text">"Vine por recomendación de una amiga y ya he recomendado a tres personas más. Increíble."</p>
+          <div class="rcard-author">Elena S.</div>
+        </article>
+        <article class="rcard">
+          <div class="rcard-stars">★★★★★</div>
+          <p class="rcard-text">"Cristina tiene un don para enseñar. Cada clase aprendo algo nuevo sobre mi cuerpo."</p>
+          <div class="rcard-author">Natalia C.</div>
+        </article>
+        <article class="rcard">
+          <div class="rcard-stars">★★★★★</div>
+          <p class="rcard-text">"Empecé con dolor de cervicales y ahora casi no noto nada. El pilates reformer es una maravilla."</p>
+          <div class="rcard-author">Raquel B.</div>
+        </article>
+        <article class="rcard">
+          <div class="rcard-stars">★★★★★</div>
+          <p class="rcard-text">"El estudio transmite una paz increíble. Entras estresada y sales flotando."</p>
+          <div class="rcard-author">Sandra O.</div>
+        </article>
+        <article class="rcard">
+          <div class="rcard-stars">★★★★<span class="empty">★</span></div>
+          <p class="rcard-text">"Buen nivel de exigencia sin pasarse. Perfecta para quienes llevamos tiempo sin hacer ejercicio."</p>
+          <div class="rcard-author">Beatriz N.</div>
+        </article>
+        <article class="rcard">
+          <div class="rcard-stars">★★★★★</div>
+          <p class="rcard-text">"Me operé de la rodilla y el pilates con Cristina ha sido parte fundamental de mi recuperación."</p>
+          <div class="rcard-author">Claudia H.</div>
+        </article>
+        <article class="rcard">
+          <div class="rcard-stars">★★★★★</div>
+          <p class="rcard-text">"Un lujo tener este estudio en Oviedo. La atención es de diez y los resultados se notan."</p>
+          <div class="rcard-author">Verónica A.</div>
+        </article>
+        <article class="rcard">
+          <div class="rcard-stars">★★★★★</div>
+          <p class="rcard-text">"Vine curiosa y me quedé enganchada. Ahora no me perdería una clase ni loca."</p>
+          <div class="rcard-author">Teresa M.</div>
+        </article>
+        <article class="rcard">
+          <div class="rcard-stars">★★★★★</div>
+          <p class="rcard-text">"Lo que más valoro es que Cristina te corrige sin que te sientas mal. Aprendo muchísimo."</p>
+          <div class="rcard-author">Cristina D.</div>
+        </article>
+        <article class="rcard">
+          <div class="rcard-stars">★★★★<span class="empty">★</span></div>
+          <p class="rcard-text">"Las instalaciones son muy limpias y acogedoras. El precio está muy bien para lo que ofrecen."</p>
+          <div class="rcard-author">Mónica R.</div>
+        </article>
+        <article class="rcard">
+          <div class="rcard-stars">★★★★★</div>
+          <p class="rcard-text">"Después del embarazo Cristina adaptó todo a mi situación. Me sentí muy cuidada."</p>
+          <div class="rcard-author">Yolanda Q.</div>
+        </article>
+        <article class="rcard">
+          <div class="rcard-stars">★★★★★</div>
+          <p class="rcard-text">"Nunca pensé que el pilates me fuera a gustar tanto. Ahora es lo mejor de mi semana."</p>
+          <div class="rcard-author">Alicia J.</div>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"><div class="sep-line"></div></div>
+
+<!-- ══ 7. SOBRE CRISTINA ══ -->
+<section id="cristina" aria-label="Sobre Cristina, instructora de Kóre Studio">
+  <div class="two-col">
+    <div class="col-text reveal-left">
+      <span class="s-label">La instructora</span>
+      <h2 class="s-title">Hola,<br>soy Cristina</h2>
+      <div class="s-rule"></div>
+      <p>Soy instructora certificada de Pilates Reformer y llevo años ayudando a personas a conectar con su cuerpo de una forma consciente y respetuosa.</p>
+      <p>Creé Kóre Studio con un objetivo claro: ofrecerte un espacio tranquilo, sin prisas y con la atención que mereces.</p>
+      <p>Aquí no somos un gimnasio más. Somos un lugar donde respirar, moverse y sentirse bien.</p>
+    </div>
+    <div class="col-img reveal-right">
+      <img src="cristina.png" alt="Cristina, instructora de Pilates Reformer en Kóre Studio" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<div class="sep"><div class="sep-line"></div></div>
+
+<!-- ══ 8. HORARIOS ══ -->
+<section id="horarios" aria-label="Horarios de Kóre Studio">
+  <div class="text-center reveal">
+    <span class="s-label">Cuándo vernos</span>
+    <h2 class="s-title">Horarios</h2>
+    <div class="s-rule center"></div>
+  </div>
+  <div class="horarios-grid">
+    <div class="horario-card reveal reveal-delay-1">
+      <div class="horario-day">Lunes a Viernes</div>
+      <div class="horario-time">08:00 – 12:00<br>17:00 – 21:00</div>
+    </div>
+    <div class="horario-card closed reveal reveal-delay-2">
+      <div class="horario-day">Sábado</div>
+      <div class="horario-time">Cerrado</div>
+    </div>
+    <div class="horario-card closed reveal reveal-delay-3">
+      <div class="horario-day">Domingo</div>
+      <div class="horario-time">Cerrado</div>
+    </div>
+  </div>
+  <p class="horario-note reveal">Plazas limitadas · Reserva con antelación</p>
+</section>
+
+<div class="sep"><div class="sep-line"></div></div>
+
+<!-- ══ 9. CONTACTO ══ -->
+<section id="contacto" aria-label="Contacto con Kóre Studio">
+  <div class="text-center reveal">
+    <span class="s-label">Escríbenos</span>
+    <h2 class="s-title">¿Hablamos?</h2>
+    <div class="s-rule center"></div>
+    <p class="s-subtitle">Maestro Portela nº18 Derecha, Oviedo, Asturias</p>
+  </div>
+  <div class="contact-btns reveal">
+    <a href="tel:+34612256455" class="btn btn-outline btn-lg">📞 Llamar ahora</a>
+    <a href="https://wa.me/34612256455?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20mi%20plaza%20en%20K%C3%B3re%20Studio" target="_blank" rel="noopener" class="btn btn-tierra btn-lg">WhatsApp</a>
+  </div>
+  <div class="text-center reveal">
+    <a href="https://www.instagram.com/_kore_studio" target="_blank" rel="noopener" class="contact-instagram">@_kore_studio</a>
+  </div>
+</section>
+
+<!-- ══ 10. FOOTER ══ -->
+<footer aria-label="Pie de página">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="logo (4).png" alt="Logo Kóre Studio" />
+      <p>Estudio boutique de Pilates Reformer en Oviedo, Asturias. Un espacio tranquilo, sin prisas y con la atención que mereces.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Horario</h4>
+      <ul>
+        <li>Lun – Vie<br>08:00–12:00 · 17:00–21:00</li>
+        <li>Sábado: Cerrado</li>
+        <li>Domingo: Cerrado</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <ul>
+        <li><a href="tel:+34612256455">612 256 455</a></li>
+        <li><a href="https://www.instagram.com/_kore_studio" target="_blank" rel="noopener">@_kore_studio</a></li>
+        <li>Maestro Portela nº18 Derecha<br>Oviedo, Asturias</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Kóre Studio · Pilates Reformer · Oviedo, Asturias</p>
+  </div>
+</footer>
+
+<!-- ══ 11. BOTÓN FLOTANTE ══ -->
+<a href="https://wa.me/34612256455?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20mi%20plaza%20en%20K%C3%B3re%20Studio"
+   target="_blank" rel="noopener noreferrer"
+   class="float-cta" aria-label="Reservar plaza en Kóre Studio por WhatsApp">
+  Reserva tu plaza
+</a>
+
+<script>
+  'use strict';
+
+  /* ── Navbar scroll ── */
+  const navbar  = document.getElementById('navbar');
+  const bannerH = document.querySelector('.top-banner').offsetHeight;
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY > 30;
+    navbar.classList.toggle('scrolled', scrolled);
+    navbar.style.top = scrolled ? '0' : bannerH + 'px';
+  }, { passive: true });
+
+  /* ── Mobile menu ── */
+  const hamburger  = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  function toggleMenu(open) {
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', String(open));
+    mobileMenu.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  hamburger.addEventListener('click', () => toggleMenu(!hamburger.classList.contains('open')));
+  document.querySelectorAll('.nav-close').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+  mobileMenu.addEventListener('click', e => { if (e.target === mobileMenu) toggleMenu(false); });
+
+  /* ── Intersection Observer – reveal ── */
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => revealObs.observe(el));
+
+  /* ── Hero parallax ── */
+  const heroBg = document.querySelector('.hero-bg');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY < window.innerHeight)
+      heroBg.style.transform = 'translateY(' + (window.scrollY * 0.35) + 'px)';
+  }, { passive: true });
+
+  /* ── Reviews marquee infinito ── */
+  (function () {
+    const marquee = document.getElementById('reviewsMarquee');
+    const track   = document.getElementById('reviewsTrack');
+    if (!marquee || !track) return;
+
+    const original = Array.from(track.children);
+    // Duplicar 2 veces para bucle sin fin
+    original.forEach(c => track.appendChild(c.cloneNode(true)));
+    original.forEach(c => track.appendChild(c.cloneNode(true)));
+
+    const SPEED = 48; // px/segundo
+    let offset   = 0;
+    let paused   = false;
+    let lastTime = null;
+
+    function getSetWidth() {
+      const gap = parseFloat(getComputedStyle(track).columnGap) || 22.4;
+      return original.reduce((acc, c) => acc + c.offsetWidth, 0) + gap * original.length;
+    }
+
+    function tick(ts) {
+      if (lastTime !== null && !paused) {
+        const dt = (ts - lastTime) / 1000;
+        offset  += SPEED * dt;
+        const sw = getSetWidth();
+        if (offset >= sw) offset -= sw;
+        track.style.transform = 'translateX(-' + offset.toFixed(2) + 'px)';
+      }
+      lastTime = ts;
+      requestAnimationFrame(tick);
+    }
+
+    marquee.addEventListener('mouseenter', () => { paused = true; });
+    marquee.addEventListener('mouseleave', () => { paused = false; });
+    requestAnimationFrame(tick);
+  }());
+
+  /* ── Smooth scroll ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - (navbar.offsetHeight + 12);
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
